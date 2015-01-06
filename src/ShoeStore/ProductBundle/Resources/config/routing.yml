@@ -1,0 +1,7 @@
+shoe_store_product_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ShoeStoreProductBundle:Default:index }
+
+display:
+    path:     /displayAll
+    defaults: { _controller: ShoeStoreProductBundle:ShoeInventory:display }

@@ -1,0 +1,11 @@
+{% extends "ShoeStoreProductBundle::layout.html.twig" %}
+
+{% block title %}ShoeStoreProductBundle:ShoeInventory:display{% endblock %}
+
+{% block body %}
+	<h1>Welcome to the ShoeInventory:display page</h1>
+    {# app/Resources/views/Default/new.html.twig #}
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+{% endblock %}

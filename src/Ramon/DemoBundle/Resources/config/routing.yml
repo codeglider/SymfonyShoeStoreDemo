@@ -1,0 +1,8 @@
+ramon_demo_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: RamonDemoBundle:Default:index }
+
+random:
+    path:     /random/{limit}
+    defaults: {_controller: RamonDemoBundle:Random:index}
+

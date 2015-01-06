@@ -1,0 +1,10 @@
+ShoeStore\ProductBundle\Entity\Task:
+    properties:
+        modelName:
+            - NotBlank: ~
+        modelNumber:
+            - NotBlank: ~
+        modelImage:
+            - NotBlank: ~
+        msrPrice:
+            - NotBlank: ~

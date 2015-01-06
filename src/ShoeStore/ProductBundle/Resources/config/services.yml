@@ -1,0 +1,5 @@
+services:
+    shoe_store.form.type.shoes:
+        class: ShoeStore\ProductBundle\Form\ShoesType
+        tags:
+            - { name: form.type, alias: shoes }

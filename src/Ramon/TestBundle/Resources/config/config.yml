@@ -1,0 +1,16 @@
+# app/config/config.yml
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+
+framework:
+    secret:          "%secret%"
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    # ...
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+# ...
