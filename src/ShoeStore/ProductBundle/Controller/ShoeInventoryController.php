@@ -18,6 +18,10 @@ class ShoeInventoryController extends Controller
 		//$shoes->setModelImage('/image/something');
 		//$shoes->setMsrPrice(125.25);
 
+		$shoeInventory = $this->getDoctrine()
+        ->getRepository('ShoeStoreProductBundle:Shoes')
+        ->findAllShoes();
+		
 		//fresh task object without dummy data
 		$shoes = new Shoes();
 		
@@ -37,13 +41,22 @@ class ShoeInventoryController extends Controller
 		
 		if ($form->isValid()) {
 			// perform some action, such as saving the task to the database
-			$nextAction = $form->get('saveAndAdd')->isClicked()?'task_new':'task_success';
+			$nextAction = $form->get('saveAndAdd')->isClicked()?'task_new':'display';
 			
-			return $this->redirect($this->generateUrl('task_success'));
+			$shoe = $form->getData();
+			
+			//$this->getDoctrine()->getRepository('ShoeStoreProductBundle:Shoes')->saveShoe($shoe);
+			
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($shoe);
+			$em->flush();
+		
+			return $this->redirect($this->generateUrl('display'));
 		}
+
 		
         return $this->render('ShoeStoreProductBundle:ShoeInventory:display.html.twig', array(
-                'form' => $form->createView(),
+                'form' => $form->createView(), 'allShoes' => $shoeInventory
             ));    
 	}
 

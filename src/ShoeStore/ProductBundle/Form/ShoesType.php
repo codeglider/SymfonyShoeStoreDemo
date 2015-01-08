@@ -21,7 +21,7 @@ class ShoesType extends AbstractType
             ->add('modelImage')
             ->add('msrPrice', 'money', array('divisor' => 100, ))
 			->add('keepInactive', 'checkbox', array('mapped' => false, 'label' => 'Keep As Inactive Inventory'))
-			->add('category', new CategoryType())
+			//->add('category', new CategoryType())
 			->add('save', 'submit', array('label' => 'Create Shoes'))
 			->add('saveAndAdd', 'submit', array('label' => 'Save and Add'))
         ;

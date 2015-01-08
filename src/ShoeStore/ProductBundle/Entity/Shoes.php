@@ -8,9 +8,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Shoes
- *
  * @ORM\Table(name="shoes")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ShoeStore\ProductBundle\Entity\ShoesRepository")
  */
 class Shoes
 {
@@ -52,7 +51,7 @@ class Shoes
     private $msrPrice;
 
 	 /**
-     * @Assert\Type(type="AppBundle\Entity\Category")
+     * @Assert\Type(type="ShoeStore\ProductBundle\Entity\Category")
      * @Assert\Valid()
      */
     protected $category;

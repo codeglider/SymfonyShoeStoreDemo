@@ -2,10 +2,28 @@
 
 {% block title %}ShoeStoreProductBundle:ShoeInventory:display{% endblock %}
 
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/displayShoeInventory.js') }}" />
+{% endblock %}
+
+{% block javascripts %}
+	{% javascripts '@ShoeStoreProductBundle/Resources/public/js/*' %}
+		<script src="{{ asset('displayShoeInventory.js') }}" type="text/javascript"></script>
+	{% endjavascripts %}
+{% endblock %}
+
 {% block body %}
 	<h1>Welcome to the ShoeInventory:display page</h1>
     {# app/Resources/views/Default/new.html.twig #}
 	{{ form_start(form) }}
 	{{ form_widget(form) }}
 	{{ form_end(form) }}
+	
+	<div>
+		<ul id="navigation">
+            {% for shoe in allShoes %}
+                <li><a href="{{ shoe.id }}">{{ shoe.modelName }}</a></li>
+            {% endfor %}
+        </ul>
+	</div>
 {% endblock %}
