@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class CategoryRepository extends EntityRepository
 {
+	public function find($id)
+    {
+		return $this->createQueryBuilder('s')
+		->where('s.id = :id')
+		->setParameter('id', $id)
+		->getQuery().getResult();
+    }
 }

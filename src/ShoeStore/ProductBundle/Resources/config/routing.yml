@@ -1,3 +1,7 @@
+shoe_store_product_category:
+    resource: "@ShoeStoreProductBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
 shoe_store_product_homepage:
     path:     /hello/{name}
     defaults: { _controller: ShoeStoreProductBundle:Default:index }

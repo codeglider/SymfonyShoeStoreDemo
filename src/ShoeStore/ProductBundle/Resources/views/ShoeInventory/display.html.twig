@@ -1,16 +1,15 @@
-{% extends "ShoeStoreProductBundle::layout.html.twig" %}
+{% extends "ShoeStoreProductBundle:Default:index.html.twig" %}
 
 {% block title %}ShoeStoreProductBundle:ShoeInventory:display{% endblock %}
 
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/displayShoeInventory.js') }}" />
-{% endblock %}
+{% block stylesheets %}{% endblock %}
 
 {% block javascripts %}
-	{% javascripts '@ShoeStoreProductBundle/Resources/public/js/*' %}
-		<script src="{{ asset_url  }}" type="text/javascript"></script>
-	{% endjavascripts %}
+		{% javascripts '@ShoeStoreProductBundle/Resources/public/js/*' %}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
 {% endblock %}
+
 
 {% block body %}
 	<h1>Welcome to the ShoeInventory:display page</h1>
