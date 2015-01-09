@@ -41,7 +41,7 @@ class ShoeInventoryController extends Controller
 		
 		if ($form->isValid()) {
 			// perform some action, such as saving the task to the database
-			$nextAction = $form->get('saveAndAdd')->isClicked()?'task_new':'display';
+			//$nextAction = $form->get('saveAndAdd')->isClicked()?'task_new':'display';
 			
 			$shoe = $form->getData();
 			

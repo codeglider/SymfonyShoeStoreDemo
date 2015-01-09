@@ -2,7 +2,11 @@
 
 {% block title %}ShoeStoreProductBundle:ShoeInventory:display{% endblock %}
 
-{% block stylesheets %}{% endblock %}
+{% block stylesheets %}
+	{% stylesheets '@ShoeStoreProductBundle/Resources/public/css/*' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
 
 {% block javascripts %}
 		{% javascripts '@ShoeStoreProductBundle/Resources/public/js/*' %}
@@ -12,17 +16,21 @@
 
 
 {% block body %}
-	<h1>Welcome to the ShoeInventory:display page</h1>
-    {# app/Resources/views/Default/new.html.twig #}
-	{{ form_start(form) }}
-	{{ form_widget(form) }}
-	{{ form_end(form) }}
-	
-	<div>
-		<ul id="navigation">
-            {% for shoe in allShoes %}
-                <li><a href="{{ shoe.id }}">{{ shoe.modelName }}</a></li>
-            {% endfor %}
-        </ul>
+	<div id="contentViewPort">
+		<div class="formContainer">
+			<h1>Welcome to the Shoe Store!</h1>
+			{# app/Resources/views/Default/new.html.twig #}
+			{{ form_start(form) }}
+			{{ form_widget(form) }}
+			{{ form_end(form) }}
+		</div>
+		
+		<div class="itemListContainer">
+			<ul id="navigation">
+				{% for shoe in allShoes %}
+					<li><a href="{{ shoe.id }}">{{ shoe.modelName }}</a></li>
+				{% endfor %}
+			</ul>
+		</div>
 	</div>
 {% endblock %}
