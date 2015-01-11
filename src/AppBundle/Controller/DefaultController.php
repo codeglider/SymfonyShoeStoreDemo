@@ -57,7 +57,7 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return new Response('Welcome to Symfony!');
+        return $this->render('default/home.html.twig', array('goToStore' => $this->generateUrl('display')));
     }
 	
 	/**
