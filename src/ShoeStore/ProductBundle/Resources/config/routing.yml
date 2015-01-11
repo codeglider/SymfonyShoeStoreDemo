@@ -9,3 +9,8 @@ shoe_store_product_homepage:
 display:
     path:     /displayAll
     defaults: { _controller: ShoeStoreProductBundle:ShoeInventory:display }
+
+shoe_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ShoeStoreProductBundle:ShoeInventory:edit" }
+    

@@ -97,3 +97,20 @@
 	position:relative;
 	top:1px;
 }
+
+#navigation
+{
+	list-style: none;
+}
+
+#navigation li
+{
+	display: inline-block;
+	margin-bottom: 20px;
+}
+
+#navigation li div
+{
+	text-align: center;	
+}
+

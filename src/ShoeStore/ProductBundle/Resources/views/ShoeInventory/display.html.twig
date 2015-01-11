@@ -28,7 +28,20 @@
 		<div class="itemListContainer">
 			<ul id="navigation">
 				{% for shoe in allShoes %}
-					<li><a href="{{ shoe.id }}">{{ shoe.modelName }}</a></li>
+					<li>
+						<div>
+							{{ shoe.modelName }}
+						</div>
+						<div>
+							<a href="{{ path('shoe_edit', { 'id': shoe.id }) }}">
+								<img height=100 alt="{{ shoe.modelNumber }}" src="{{ shoe.modelImage }}">
+							</a>
+						</div>
+						<div class="modelNumberPrice">
+							<span>{{ shoe.modelNumber }}</span>
+							<span>${{ shoe.msrPrice }}</span>
+						</div>
+					</li>
 				{% endfor %}
 			</ul>
 		</div>

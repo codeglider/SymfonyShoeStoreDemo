@@ -41,11 +41,8 @@ class ShoeInventoryController extends Controller
 		
 		if ($form->isValid()) {
 			// perform some action, such as saving the task to the database
-			//$nextAction = $form->get('saveAndAdd')->isClicked()?'task_new':'display';
 			
 			$shoe = $form->getData();
-			
-			//$this->getDoctrine()->getRepository('ShoeStoreProductBundle:Shoes')->saveShoe($shoe);
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($shoe);
@@ -57,7 +54,27 @@ class ShoeInventoryController extends Controller
 		
         return $this->render('ShoeStoreProductBundle:ShoeInventory:display.html.twig', array(
                 'form' => $form->createView(), 'allShoes' => $shoeInventory
-            ));    
+        ));    
+	}
+	
+	public function editAction($id)
+	{
+		$em = $this->getDoctrine()->getManager();
+		
+		$shoeInventory = $this->getDoctrine()
+		->getRepository('ShoeStoreProductBundle:Shoes')
+		->findAllShoes();
+		
+		$shoes = $em->getRepository('ShoeStoreProductBundle:Shoes')->find($id);
+		$form = $this->createForm('shoes', $shoes);
+		
+		if (!$shoes) {
+			throw $this->createNotFoundException('Unable to find Shoe entity.');
+		}
+		
+		return $this->render('ShoeStoreProductBundle:ShoeInventory:display.html.twig', array(
+                'form' => $form->createView(), 'allShoes' => $shoeInventory
+        ));
 	}
 
 }
